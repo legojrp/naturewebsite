@@ -4,7 +4,7 @@ $filename = $dbconnect;
 class Dbconnect {
     private $conn;
     private $username = "access";
-    private $password = $ClockServer272;
+    private $password = "$ClockServer272";
     private $database ="test"; 
     private $servername = "localhost";
     public $status = false; 
