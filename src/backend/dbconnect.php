@@ -5,7 +5,7 @@ class Dbconnect {
     private $username = "access";
     private $password = "\$ClockServer272";
     private $database ="test"; 
-    private $servername = "localhost";
+    private $servername = "locdalhost";
     public $status = false; 
 
     private $logname = "dbconnect";
