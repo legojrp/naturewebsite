@@ -17,7 +17,7 @@ class Dbconnect {
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->status;
         } catch (PDOException $e) {
-            logInfo("$this->logname - " . $e->getMessage());
+            logError("$this->logname - " . $e->getMessage());
         }
     }
     function __destruct()
