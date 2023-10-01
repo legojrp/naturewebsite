@@ -1,6 +1,6 @@
 <?php 
 function logMessage($level, $message) {
-    $logFile = getcwd() . '/log.log';
+    $logFile = '/log.log';
 
     // Generate a timestamp
     $timestamp = date('Y-m-d H:i:s');
