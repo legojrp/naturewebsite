@@ -22,7 +22,10 @@ class Dbconnect {
     }
     function __destruct()
     {
-        $this->conn->close();
+        if ($this->conn) {
+
+            $this->conn->close();
+        }
     }
 }
 ?>
