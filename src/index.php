@@ -15,6 +15,7 @@
     $conn = new Dbconnect();
     echo $conn->status;
     echo "hey";
+    echo `whoami`;
     ?>
     <!-- hey-->
 </body>
