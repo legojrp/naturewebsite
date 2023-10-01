@@ -7,7 +7,7 @@ function logMessage($level, $message) {
     if ( !file_exists($dir) ) {
         mkdir ($dir, 0744);
     }
-
+    echo is_writable($dir);
     // Generate a timestamp
     $timestamp = date('Y-m-d H:i:s');
 
