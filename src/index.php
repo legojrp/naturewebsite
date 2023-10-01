@@ -6,7 +6,11 @@
     <title>Index</title>
 </head>
 <body>
-    
+    <?php
+    require "/backend/dbconnect.php";
+    $conn = new Dbconnect();
+    echo $conn->status;
+    ?>
 </body>
 </html>
 
