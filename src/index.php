@@ -16,6 +16,7 @@
     echo $conn->status;
     echo "hey";
     echo `whoami`;
+    phpinfo();
     ?>
     <!-- hey-->
 </body>
