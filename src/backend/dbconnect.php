@@ -15,7 +15,7 @@ class Dbconnect {
             $conn = new PDO("mysql:host=$this->servername;dbname=$this->database", $this->username, $this->password);
             // Set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $this->status;
+            $this->status = true;
         } catch (PDOException $e) {
             logError("$this->logname - " . $e->getMessage());
         }
