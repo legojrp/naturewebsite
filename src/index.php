@@ -14,9 +14,6 @@
     require "./backend/dbconnect.php";
     $conn = new Dbconnect();
     echo $conn->status;
-    echo "hey";
-    echo `whoami`;
-    phpinfo();
     ?>
     <!-- hey-->
 </body>
