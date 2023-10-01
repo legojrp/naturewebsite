@@ -2,7 +2,7 @@
 function logMessage($level, $message) {
     $logFile = 'log.log';
 
-    $dir = "log";
+    $dir = "/var/www/html/src/backend/log";
     // Check if the log file exists, create it if not
     if ( !file_exists($dir) ) {
         mkdir ($dir, 0744);
