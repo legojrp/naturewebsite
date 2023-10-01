@@ -14,6 +14,7 @@
     require "./backend/dbconnect.php";
     $conn = new Dbconnect();
     echo $conn->status;
+    
     ?>
     <!-- hey-->
 </body>
