@@ -1,6 +1,12 @@
 <?php 
 function logMessage($level, $message) {
-    $logFile = '/log.log';
+    $logFile = 'log.log';
+
+    // Check if the log file exists, create it if not
+    if (!file_exists($logFile)) {
+        $file = fopen($logFile, 'w');  // Create a new file
+        fclose($file);
+    }
 
     // Generate a timestamp
     $timestamp = date('Y-m-d H:i:s');
