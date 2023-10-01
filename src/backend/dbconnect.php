@@ -26,6 +26,9 @@ class Dbconnect {
 
             $this->conn->close();
         }
+        else {
+            logError("$this->logname - null conn");
+        }
     }
 }
 ?>
