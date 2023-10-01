@@ -10,8 +10,8 @@
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL); 
-    
-    require "/backend/dbconnect.php";
+
+    require "./backend/dbconnect.php";
     $conn = new Dbconnect();
     echo $conn->status;
     ?>
