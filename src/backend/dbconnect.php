@@ -1,6 +1,5 @@
 <?php 
 require "logger.php";
-$filename = $dbconnect;
 class Dbconnect {
     private $conn;
     private $username = "access";
@@ -18,7 +17,7 @@ class Dbconnect {
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->status;
         } catch (PDOException $e) {
-            logInfo("$this->logname - "+ $e->getMessage());
+            logInfo("$this->logname - " . $e->getMessage());
         }
     }
     function __destruct()
