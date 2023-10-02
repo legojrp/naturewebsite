@@ -52,7 +52,7 @@ class Dbconnect {
         if ($this->conn instanceof PDO) {
             $this->conn->close();
         } else {
-            logError("$this->logname - null conn");
+            syslog(LOG_ALERT, "$this->logname - null conn");
         }
     }
 }
