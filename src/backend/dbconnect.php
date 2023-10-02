@@ -2,7 +2,7 @@
 require_once "logger.php";
 
 
-ini_set('memory_limit', '-1');
+ini_set('memory_limit', '5028M');
 class Dbconnect {
     private $conn;
     private $username = "access";
@@ -42,11 +42,9 @@ class Dbconnect {
 
     function __destruct()
     {
-        if ($this->conn) {
-
+        if ($this->conn instanceof PDO) {
             $this->conn->close();
-        }
-        else {
+        } else {
             logError("$this->logname - null conn");
         }
     }
