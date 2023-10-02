@@ -13,7 +13,7 @@
 
     require_once "./backend/logger.php";
     logError("This is a test!");
-    
+    memory_get_usage();
     ?>
     <!-- hey-->
 </body>
