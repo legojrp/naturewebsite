@@ -30,7 +30,6 @@ class Dbconnect {
         $stmt->bindparam(":columns", $columns, PDO::PARAM_STR);
         $stmt->bindparam(":values", $values, PDO::PARAM_STR);
         $stmt->execute();
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         } catch(PDOException $e) {
             logError("Failure on insert context: $table, $columns, $values");
