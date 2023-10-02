@@ -1,4 +1,5 @@
 <?php 
+require "./dbconnect.php";
 function logMessage($level, $message) {
     $logFile = 'log.log';
 
@@ -7,7 +8,6 @@ function logMessage($level, $message) {
     // if ( !file_exists($dir) ) {
     //     mkdir ($dir, 0744);
     // }
-    echo $message;
     // Generate a timestamp
     $timestamp = date('ymdHis');
 
@@ -22,7 +22,7 @@ function logMessage($level, $message) {
         return false;
     }
     $sql->insert("log", "message, level, time", "\"$message\",\"$level\",\"$timestamp\"");
-    
+
 
     
 }
