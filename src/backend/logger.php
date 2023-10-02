@@ -1,5 +1,5 @@
 <?php 
-require "./dbconnect.php";
+require "dbconnect.php";
 function logMessage($level, $message) {
     $logFile = 'log.log';
 
