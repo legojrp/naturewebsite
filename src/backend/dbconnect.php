@@ -1,5 +1,5 @@
 <?php 
-require "logger.php";
+require_once "logger.php";
 class Dbconnect {
     private $conn;
     private $username = "access";
@@ -57,7 +57,7 @@ table log:
     message text 200
     level text 10
     time timestamp
-    
+
 
 */
 ?>

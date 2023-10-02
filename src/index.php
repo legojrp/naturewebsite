@@ -11,7 +11,7 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL); 
 
-    require "./backend/logger.php";
+    require_once "./backend/logger.php";
     logError("This is a test!");
     
     ?>
