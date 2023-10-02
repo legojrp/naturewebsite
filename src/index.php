@@ -11,9 +11,8 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL); 
 
-    require "./backend/dbconnect.php";
-    $conn = new Dbconnect();
-    echo $conn->status;
+    require "./backend/logger.php";
+    logError("This is a test!");
     
     ?>
     <!-- hey-->

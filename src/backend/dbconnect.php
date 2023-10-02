@@ -17,9 +17,27 @@ class Dbconnect {
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->status = true;
         } catch (PDOException $e) {
-            logError("$this->logname - " . $e->getMessage());
+            syslog(LOG_ALERT, " ******** Database fail ********");
         }
     }
+
+    public function insert($table, $columns, $values){
+        try {
+
+        $sql = "INSERT INTO $this->database (:columns) VALUES (:values)";
+        
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindparam(":columns", $columns, PDO::PARAM_STR);
+        $stmt->bindparam(":values", $values, PDO::PARAM_STR);
+        $stmt->execute();
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        } catch(PDOException $e) {
+            logError("Failure on insert context: $table, $columns, $values");
+        }
+    }
+
+
     function __destruct()
     {
         if ($this->conn) {
@@ -31,4 +49,17 @@ class Dbconnect {
         }
     }
 }
+
+
+/*
+database nature:
+table log: 
+    message text 200
+    level text 10
+    time timestamp
+    
+
+*/
 ?>
+
+
