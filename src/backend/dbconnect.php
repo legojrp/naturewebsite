@@ -40,7 +40,8 @@ class Dbconnect {
         unset($stmt);
         } catch(\Throwable $e) {
             echo "hey";
-            logError("Failure on insert context: $table, $columns, $values");
+            //logError("Failure on insert context: $table, $columns, $values");
+            syslog(LOG_ALERT, "database disconnect");
             unset($stmt);
         }
     }
