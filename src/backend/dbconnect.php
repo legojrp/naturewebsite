@@ -28,8 +28,10 @@ class Dbconnect {
         try {
 
        // $sql = "INSERT INTO $this->database (:columns) VALUES (:values)";
-        
+        echo memory_get_peak_usage();
         $stmt = $this->conn->prepare("INSERT INTO $this->database (:columns) VALUES (:values)");
+        echo memory_get_peak_usage();
+
         $stmt->bindparam(":columns", $columns, PDO::PARAM_STR);
         $stmt->bindparam(":values", $values, PDO::PARAM_STR);
         $stmt->execute();
