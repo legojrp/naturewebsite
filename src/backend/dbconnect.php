@@ -1,5 +1,8 @@
 <?php 
 require_once "logger.php";
+
+
+ini_set('memory_limit', '-1');
 class Dbconnect {
     private $conn;
     private $username = "access";
