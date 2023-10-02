@@ -24,9 +24,9 @@ class Dbconnect {
     public function insert($table, $columns, $values){
         try {
 
-        $sql = "INSERT INTO $this->database (:columns) VALUES (:values)";
+       // $sql = "INSERT INTO $this->database (:columns) VALUES (:values)";
         
-        $stmt = $this->conn->prepare($sql);
+        $stmt = $this->conn->prepare("INSERT INTO $this->database (:columns) VALUES (:values)");
         $stmt->bindparam(":columns", $columns, PDO::PARAM_STR);
         $stmt->bindparam(":values", $values, PDO::PARAM_STR);
         $stmt->execute();
