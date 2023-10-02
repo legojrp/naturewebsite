@@ -11,6 +11,7 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL); 
 
+    memory_get_usage();
     require_once "./backend/logger.php";
     logError("This is a test!");
     memory_get_usage();
