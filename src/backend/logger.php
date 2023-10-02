@@ -1,6 +1,6 @@
 <?php 
 require "dbconnect.php";
-function logMessage($level, $message) {
+function logger($level, $message) {
     $logFile = 'log.log';
 
     $dir = "/tmp/php_logs";
