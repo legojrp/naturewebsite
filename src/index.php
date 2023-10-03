@@ -10,13 +10,9 @@
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL); 
-
-    echo memory_get_usage();
     require_once "./backend/logger.php";
     logError("This is a test!");
-    echo memory_get_usage();
     ?>
-    <!-- hey-->
 </body>
 </html>
 
