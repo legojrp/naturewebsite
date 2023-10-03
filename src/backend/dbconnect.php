@@ -20,8 +20,9 @@ class Dbconnect {
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->conn->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
             $this->status = true;
+            echo $this->conn;
         } catch (PDOException $e) {
-            syslog(LOG_ALERT, " ******** Database fail ********");
+            syslog(LOG_ALERT, $e->getMessage());
         }
     }
 
