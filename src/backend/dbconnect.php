@@ -30,9 +30,8 @@ class Dbconnect {
 
        // $sql = "INSERT INTO $this->database (:columns) VALUES (:values)";
         echo $this->status;
-        $stmt = $this->conn->prepare("INSERT INTO $this->database (:columns) VALUES (:values)");
+        $stmt = $this->conn->prepare("INSERT INTO $this->database ($columns) VALUES (:values)");
 
-        $stmt->bindparam(":columns", $columns, PDO::PARAM_STR);
         $stmt->bindparam(":values", $values, PDO::PARAM_STR);
         $stmt->execute();
         unset($stmt);
