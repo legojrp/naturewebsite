@@ -15,10 +15,10 @@ class Dbconnect {
 
     function __construct(){
         try {
-            $conn = new PDO("mysql:host=$this->servername;dbname=$this->database", $this->username, $this->password);
+            $this->conn = new PDO("mysql:host=$this->servername;dbname=$this->database", $this->username, $this->password);
             // Set the PDO error mode to exception
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $conn->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->conn->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
             $this->status = true;
         } catch (PDOException $e) {
             syslog(LOG_ALERT, " ******** Database fail ********");
