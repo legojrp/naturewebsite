@@ -7,7 +7,7 @@ class Dbconnect {
     private $conn;
     private $username = "access";
     private $password = "\$ClockServer272";
-    private $database ="test"; 
+    private $database ="nature"; 
     private $servername = "localhost";
     public $status = false; 
 
@@ -29,17 +29,14 @@ class Dbconnect {
         try {
 
        // $sql = "INSERT INTO $this->database (:columns) VALUES (:values)";
-        echo memory_get_peak_usage();
         echo $this->status;
         $stmt = $this->conn->prepare("INSERT INTO $this->database (:columns) VALUES (:values)");
-        echo memory_get_peak_usage();
 
         $stmt->bindparam(":columns", $columns, PDO::PARAM_STR);
         $stmt->bindparam(":values", $values, PDO::PARAM_STR);
         $stmt->execute();
         unset($stmt);
         } catch(PDOException $e) {
-            echo "hey";
             //logError("Failure on insert context: $table, $columns, $values");
             syslog(LOG_ALERT, "database disconnect");
             unset($stmt);
