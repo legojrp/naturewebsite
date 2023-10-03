@@ -47,14 +47,14 @@ class Dbconnect {
     }
 
 
-    function __destruct()
-    {
-        if ($this->conn instanceof PDO) {
-            $this->conn->close();
-        } else {
-            syslog(LOG_ALERT, "$this->logname - null conn");
-        }
-    }
+    // function __destruct()
+    // {
+    //     if ($this->conn instanceof PDO) {
+    //         $this->conn->close();
+    //     } else {
+    //         syslog(LOG_ALERT, "$this->logname - null conn");
+    //     }
+    // }
 }
 
 
