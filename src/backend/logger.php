@@ -22,7 +22,7 @@ function logMessage($level, $message) {
         return false;
     }
     $sql->insert("log", "message, level, time", "\"$message\",\"$level\",\"$timestamp\"");
-
+    
 
     
 }

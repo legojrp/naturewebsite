@@ -38,7 +38,7 @@ class Dbconnect {
         $stmt->bindparam(":values", $values, PDO::PARAM_STR);
         $stmt->execute();
         unset($stmt);
-        } catch(\Throwable $e) {
+        } catch(PDOException $e) {
             echo "hey";
             //logError("Failure on insert context: $table, $columns, $values");
             syslog(LOG_ALERT, "database disconnect");
