@@ -21,7 +21,7 @@ function logMessage($level, $message) {
         syslog(LOG_ALERT, " ******** Log Database fail ********");
         return false;
     }
-    $sql->insert("log", "message, level, time", "\"$message\",\"$level\",\"$timestamp\"");
+    $sql->insert("log", "message, level, time", $message, $level, $timestamp);
     
 
     
