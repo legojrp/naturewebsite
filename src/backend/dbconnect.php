@@ -25,14 +25,16 @@ class Dbconnect {
         }
     }
 
-    public function insert($table, $columns, $values){
+    public function insert($table, $columns, $value1, $value2, $value3){
         try {
 
        // $sql = "INSERT INTO $this->database (:columns) VALUES (:values)";
         echo $this->status;
-        $stmt = $this->conn->prepare("INSERT INTO $table ($columns) VALUES (:values)");
+        $stmt = $this->conn->prepare("INSERT INTO $table ($columns) VALUES (:value1, :value2, :value3)");
 
-        $stmt->bindparam(":values", $values, PDO::PARAM_STR);
+        $stmt->bindparam(":value1", $value1);
+        $stmt->bindparam(":value2", $value2);
+        $stmt->bindparam(":value3", $value3);
         $stmt->execute();
         unset($stmt);
         } catch(PDOException $e) {
