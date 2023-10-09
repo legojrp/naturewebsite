@@ -23,7 +23,6 @@ function createCard(){
 
         
     }
-    echo strlen($output);
     return $output;
 
 
