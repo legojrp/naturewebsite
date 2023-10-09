@@ -6,9 +6,10 @@ require_once "dbconnect.php";
 
 
 function createCard(){
+    $output = "";
     $db = new natureDB();
     foreach($db->displayMainPageNoFilter() as $row){
-        echo `<div class="col-md-6">
+        $output .= `<div class="col-md-6">
                 <div class="card mb-4">
                     <img src="pics/{$row['description']}" class="card-img-top" alt="Picture of {$row["name"]}">
                     <div class="card-body">
