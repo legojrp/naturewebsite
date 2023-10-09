@@ -21,10 +21,11 @@ function createCard(){
                 </div>
             </div>
             `;
-        echo "1";
+        
 
         
     }
+    return $output;
 
 
 
