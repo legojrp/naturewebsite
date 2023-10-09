@@ -16,12 +16,12 @@ function logMessage($level, $message) {
 
     // Append the log message to the log file
     // file_put_contents($dir.'/log.log', $logMessage, FILE_APPEND);
-    $sql = new Dbconnect();
+    $sql = new logDB();
     if (!$sql->status){
         syslog(LOG_ALERT, " ******** Log Database fail ********");
         return false;
     }
-    $sql->insert("log", "message, level, time", $message, $level, $timestamp);
+    $sql->insert($message, $level, $timestamp);
     
 
     
