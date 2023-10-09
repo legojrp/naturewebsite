@@ -69,6 +69,19 @@ class natureDB extends Dbconnect {
     public function insert($name, $desc, $imageloc){
         
     }
+    public function displayMainPageNoFilter(){
+        try {
+            $stmt = $this->conn->prepare("Select * FROM nature ORDER BY name ASC LIMIT 20;");
+            $stmt->execute();
+
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $results;
+        }
+        catch (PDOException $e){
+            logError("displayMainPageNoFilter error: " . $e->getMessage());
+        }
+        
+    }
 }
 
 
@@ -81,6 +94,14 @@ table log:
     level text 10
     time timestamp
 
+
+table nature:
+    name text(100),
+    description text(10000),
+    id MEDIUMINT NOT NULL AUTO_INCREMENT,
+    imagename text(100),
+
+    PRIMARY KEY (id);
 
 */
 ?>
