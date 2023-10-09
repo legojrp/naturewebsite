@@ -37,7 +37,6 @@
         </div>
     </nav>
 
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/A_black_image.jpg" alt="Image Description" class="custom-image">
 
     <div class="container text-center mt-4">
         <h2>Title/im going mentally insane</h2>
