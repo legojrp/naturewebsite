@@ -4,7 +4,7 @@ require_once "logger.php";
 
 ini_set('memory_limit', '5028M');
 class Dbconnect {
-    private $conn = "";
+    protected $conn = "";
     private $username = "access";
     private $password = "\$ClockServer272";
     private $database ="nature"; 
@@ -65,16 +65,9 @@ class logDB extends Dbconnect{
 
 class natureDB extends Dbconnect {
     private $table = "nature";
-    public function insert(){
-        try {
-
-       // $sql = "INSERT INTO $this->database (:columns) VALUES (:values)";
+    
+    public function insert($name, $desc, $imageloc){
         
-        } catch(PDOException $e) {
-            //logError("Failure on insert context: $table, $columns, $values");
-            syslog(LOG_ALERT, $e->getMessage());
-            unset($stmt);
-        }
     }
 }
 
