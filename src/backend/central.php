@@ -18,7 +18,7 @@ function createCard(){
         //         </div>
         //     </div>
         //     `;
-        echo $row;
+        print_r($row);
     }
 
 

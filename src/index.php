@@ -61,5 +61,4 @@
 
 <?php 
 // Tell me when you want server - client access, and I (John) can insert the php to transfer that info
-echo "hey"
 ?> 
