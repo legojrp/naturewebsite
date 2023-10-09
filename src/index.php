@@ -47,7 +47,6 @@
         <div class="row">
             <?php 
             // This will dynamically output every card! **DO NOT EDIT THIS CODE** - unless needed of course
-            echo "HEY!";
             echo createCard();
             ?>
 
