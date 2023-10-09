@@ -8,6 +8,7 @@ require_once "dbconnect.php";
 function createCard(){
     $output = "";
     $db = new natureDB();
+    echo "Hey!";
     foreach($db->displayMainPageNoFilter() as $row){
         $output .= `<div class="col-md-6">
                 <div class="card mb-4">
@@ -19,6 +20,7 @@ function createCard(){
                 </div>
             </div>
             `;
+
         
     }
 
