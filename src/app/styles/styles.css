@@ -1,1 +1,33 @@
-/* This is just here so the directory will show up on github */
+.navbar-dark .navbar-nav .nav-link {
+    color: #ffffff;
+}
+.navbar-dark .navbar-toggler-icon {
+    background-color: #ffffff;
+}
+.navbar-dark {
+    background-color: #800000;
+}
+body {
+    background-color: #fbaa19;
+    color: #800000;
+}
+.btn-primary {
+    background-color: #800000;
+    border-color: #800000;
+}
+.btn-primary:hover {
+    background-color: #fbaa19;
+    border-color: #fbaa19;
+}
+.navbar-brand {
+    color: #ffffff;
+}
+.custom-image {
+    width: 70%; 
+    display: block;
+    margin: 0 auto;
+    padding: 20px; 
+}
+.card {
+    border-radius: 15px;
+}
