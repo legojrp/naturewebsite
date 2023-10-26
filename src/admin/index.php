@@ -92,7 +92,7 @@
           // Get the data from the card and output it into the form to edit if available
 
             const xhttp = new XMLHttpRequest();
-            var id = document.querySelector(".selected-card p");
+            var id = document.querySelector(".selected-card div p");
             xhttp.onload = function() { //calls onload
                 console.log(xhttp.responseText);
             }
