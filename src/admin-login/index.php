@@ -29,7 +29,7 @@
     <div class="container mt-4 text-center">
       <div class="card p-4">
         <h4 class="black">Admin Log In</h4>
-        <form>
+        <form action="/backend/loginhandler.php">
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Name">
           </div>

@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="app/styles/styles.css">
 </head>
 <body>
+    <?php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL); 
+    require_once "./backend/central.php";
+    logInfo("This is a test!");
+    ?>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">
             <img src="https://upload.wikimedia.org/wikipedia/en/0/03/Walter_White_S5B.png" width="30" height="30" class="d-inline-block align-top" alt="">
@@ -52,24 +59,10 @@
           <div class="right-column">
               <!-- Event Cards (Row) -->
               <div class="row">
-                  <div class="col-md-6 mb-3">
-                      <div class="card custom-card" onclick="toggleCardSelection(this)">
-                          <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
-                          <div class="card-body">
-                              <h5 class="card-title">Event Title</h5>
-                              <p class="card-text">Event Description</p>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="col-md-6 mb-3">
-                      <div class="card custom-card" onclick="toggleCardSelection(this)">
-                          <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
-                          <div class="card-body">
-                              <h5 class="card-title">Event Title</h5>
-                              <p class="card-text">Event Description</p>
-                          </div>
-                      </div>
+              <?php 
+            // This will dynamically output every card! **DO NOT EDIT THIS CODE** - unless needed of course
+                echo createCard();
+            ?>
                   </div>
               </div>
           </div>
@@ -92,9 +85,29 @@
           var rightColumn = document.querySelector('.right-column');
           leftColumn.style.display = document.querySelector('.selected-card') !== null ? 'block' : 'none';
           rightColumn.style.width = "74.59999%";
+
+
+
+
+          // Get the data from the card and output it into the form to edit if available
+
+            const xhttp = new XMLHttpRequest();
+            var id = document.querySelector(".selected-card p");
+            xhttp.onload = function() { //calls onload
+                console.log(xhttp.responseText);
+            }
+            xhttp.open("POST", "../backend/getCard.php");
+            xhttp.send("id=" + id.textContent);
+
+            
         }
       }
+
+
+      
   </script>
+
+
 
 
   
