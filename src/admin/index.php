@@ -12,7 +12,7 @@
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL); 
-    require_once "./backend/central.php";
+    require_once "../backend/central.php";
     logInfo("This is a test!");
     ?>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
