@@ -14,7 +14,7 @@ function createCard(){
         $output .= "<div class='col-md-6'>
         <div class='card mb-4'>
             <p style='display:none;'>{$row['id']}</p>
-            <img src='$PTS/pics/{$row['imagename']}' class='card-img-top' alt='Picture of {$row["name"]}'>
+            <img src='{$GLOBALS['PTS']}/pics/{$row['imagename']}' class='card-img-top' alt='Picture of {$row["name"]}'>
             <div class='card-body'>
                 <h5 class='card-title'>{$row["name"]}</h5>
                 <p class='card-text'>{$row["description"]}</p>
