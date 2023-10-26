@@ -71,26 +71,25 @@
 
 
   <script>
-      var isDisplayed = false;
       function toggleCardSelection(card) {
-        if (!isDisplayed) {
-          var cards = document.querySelectorAll('.custom-card');
-          cards.forEach(function(item) {
-              if (item !== card) {
-                  item.classList.remove('selected-card');
-              }
-          });
-          card.classList.toggle('selected-card');
-          var leftColumn = document.querySelector('.left-column');
-          var rightColumn = document.querySelector('.right-column');
-          leftColumn.style.display = document.querySelector('.selected-card') !== null ? 'block' : 'none';
-          rightColumn.style.width = "74.59999%";
+        
+        var cards = document.querySelectorAll('.custom-card');
+        cards.forEach(function(item) {
+            if (item !== card) {
+                item.classList.remove('selected-card');
+            }
+        });
+        card.classList.toggle('selected-card');
+        var leftColumn = document.querySelector('.left-column');
+        var rightColumn = document.querySelector('.right-column');
+        leftColumn.style.display = document.querySelector('.selected-card') !== null ? 'block' : 'none';
+        rightColumn.style.width = "74.59999%";
 
 
 
 
-          // Get the data from the card and output it into the form to edit if available
-
+        // Get the data from the card and output it into the form to edit if available
+        if (leftColumn.style.display == "block"){
             const xhttp = new XMLHttpRequest();
             var id = document.querySelector(".selected-card p");
             xhttp.onload = function() { //calls onload
@@ -101,7 +100,7 @@
 
             
         }
-      }
+    }
 
 
       
