@@ -96,8 +96,8 @@
                 console.log(xhttp.responseText);
                 var result =  JSON.parse(xhttp.responseText);
                 if (result.status == true){
-                    Desc = document.querySelector(".left-column #Desc")
-                    Name = document.querySelector(".left-column #Title")
+                    Desc = document.querySelector(".left-column #desc")
+                    Name = document.querySelector(".left-column #title")
                     name.textContent = result.name;
                     Desc.textContent = result.desc;
                 }
