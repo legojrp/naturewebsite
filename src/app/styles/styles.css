@@ -1,26 +1,26 @@
 .navbar-dark .navbar-nav .nav-link {
-    color: #ffffff;
+    color: #CCE3DE;
   }
   .navbar-dark .navbar-toggler-icon {
-     background-color: #ffffff;
+     background-color: #CCE3DE;
   }
   .navbar-dark {
-    background-color: #800000;
+    background-color: #242423;
   }
   body {
-    background-color: #fbaa19;
-    color: #800000;
+    background-color: #249273;
+    color: #242423;
   }
   .btn-primary {
-    background-color: #800000;
-    border-color: #800000;
+    background-color: #242423;
+    border-color: #242423;
   }
   .btn-primary:hover {
-    background-color: #fbaa19;
-    border-color: #fbaa19;
+    background-color: #249273;
+    border-color: #249273;
   }
   .navbar-brand {
-    color: #ffffff;
+    color: #CCE3DE;
   }
   .custom-image {
     width: 70%; 
@@ -31,8 +31,8 @@
   .card {
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    background-color: #ffffff;
-    color: #ffffff;
+    background-color: #CCE3DE;
+    color: #CCE3DE;
   }
   .center-card {
       position: absolute;
