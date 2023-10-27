@@ -86,7 +86,7 @@ class natureDB extends Dbconnect {
     public function getInfoFromId($id){
         try {
             $stmt = $this->conn->prepare("Select * FROM nature WHERE id = :id  ORDER BY id ASC LIMIT 1;");
-            $stmt->bindparam(":id", $id, PDO::PARAM_INT);
+            $stmt->bindparam(":id", $id);
             $stmt->execute();
             $results = $stmt->fetch(PDO::FETCH_ASSOC);
             return $results;
