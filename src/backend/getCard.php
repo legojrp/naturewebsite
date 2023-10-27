@@ -7,7 +7,7 @@
     $sql = new natureDB();
     $row = $sql->getInfoFromId($Cid);
     if ($row) {
-        echo $row;
+        print_R($row);
         echo json_encode(array("status"=> false,"msg"=> "Card Id: $Cid doesn't exist, if the problem persists, email legojrp@gmail.com for assistance"));
     }
     else {
