@@ -85,14 +85,15 @@ class natureDB extends Dbconnect {
 
     public function getInfoFromId($id){
         try {
-            $stmt = $this->conn->prepare("Select * WHERE id = :id FROM nature ORDER BY id ASC LIMIT 1;");
-            $stmt->bindparam(":id", $id);
+            $stmt = $this->conn->prepare("Select * FROM nature WHERE id = :id  ORDER BY id ASC LIMIT 1;");
+            $stmt->bindparam(":id", $id, PDO::PARAM_INT);
             $stmt->execute();
             $results = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $results[0];
+            return $results;
         }
         catch (PDOException $e){
             logError("getInfoFromId error: ". $e->getMessage());
+            return false;
         }
     }
 }

@@ -6,7 +6,7 @@
     $Cid = $_POST["id"]; // Cardid
     $sql = new natureDB();
     $row = $sql->getInfoFromId($Cid);
-    if ($row === false) {
+    if ($row) {
         echo json_encode(array("status"=> false,"msg"=> "Card Id doesn't exist, if the problem persists, email legojrp@gmail.com for assistance"));
     }
     else {
