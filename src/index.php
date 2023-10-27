@@ -28,7 +28,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Admin</a>
+                    <a class="nav-link" href="admin/">Admin</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Yes/extra for you <3</a>
