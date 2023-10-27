@@ -99,7 +99,7 @@
                     Desc = document.querySelector(".left-column #desc")
                     Name = document.querySelector(".left-column #title")
                     Name.value = result.name;
-                    Desc.textContent = result.desc;
+                    Desc.value = result.desc;
                 }
                 
             }
