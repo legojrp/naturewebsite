@@ -38,16 +38,16 @@
           <!-- Right Column (Full screen) -->
           <div class="bg-dark text-white p-4 left-column">
               <h4 class="mb-3">Image</h4>
-              <div class="custom-file mb-4">
+              <div id="imageselect" class="custom-file mb-4">
                   <input type="file" class="custom-file-input" id="customFile" accept="image/*">
                   <label class="custom-file-label" for="customFile">Choose file</label>
               </div>
 
               <h4 class="mb-3">Title</h4>
-              <input type="text" class="form-control mb-4" placeholder="Enter Title">
+              <input type="text" id= "title" class="form-control mb-4" placeholder="Enter Title">
 
               <h4 class="mb-3">Description</h4>
-              <textarea class="form-control mb-4" rows="5" placeholder="Enter Description"></textarea>
+              <textarea id="desc" class="form-control mb-4" rows="5" placeholder="Enter Description"></textarea>
 
               <div class="d-flex justify-content-center">
                   <button class="btn btn-primary">Save</button>
@@ -61,8 +61,8 @@
               <div class="row">
               <?php 
             // This will dynamically output every card! **DO NOT EDIT THIS CODE** - unless needed of course
-                echo createCard();
-            ?>
+                    echo createCard();
+                ?>
                   </div>
               </div>
           </div>
@@ -94,6 +94,14 @@
             var id = document.querySelector(".selected-card p");
             xhttp.onload = function() { //calls onload
                 console.log(xhttp.responseText);
+                var result =  JSON.parse(xhttp.responseText);
+                if (result.status == true){
+                    Desc = document.querySelector(".left-column #Desc")
+                    Name = document.querySelector(".left-column #Title")
+                    name.textContent = result.Name;
+                    Desc.textContent = result.Desc;
+                }
+                
             }
             xhttp.open("POST", "../backend/getCard.php");
             xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
