@@ -92,11 +92,11 @@
         if (leftColumn.style.display == "block"){
             const xhttp = new XMLHttpRequest();
             var id = document.querySelector(".selected-card p");
-            xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhttp.onload = function() { //calls onload
                 console.log(xhttp.responseText);
             }
             xhttp.open("POST", "../backend/getCard.php");
+            xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhttp.send("id=" + id.textContent);
 
             
