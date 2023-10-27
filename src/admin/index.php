@@ -98,8 +98,8 @@
                 if (result.status == true){
                     Desc = document.querySelector(".left-column #Desc")
                     Name = document.querySelector(".left-column #Title")
-                    name.textContent = result.Name;
-                    Desc.textContent = result.Desc;
+                    name.textContent = result.name;
+                    Desc.textContent = result.desc;
                 }
                 
             }
