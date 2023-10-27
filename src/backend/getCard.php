@@ -10,6 +10,7 @@
         echo json_encode(array("status"=> false,"msg"=> "Card Id doesn't exist, if the problem persists, email legojrp@gmail.com for assistance"));
     }
     else {
+        echo $row;
         echo json_encode(array("status"=> true, "desc"=> $row["description"], "name"=> $row["name"], "imagepath" => row["imagename"]));
     }
 ?>
