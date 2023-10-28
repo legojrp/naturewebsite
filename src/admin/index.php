@@ -122,10 +122,10 @@
         var desc = document.querySelector(".left-column #desc");
         var file = fileInput.files[0];
 
-        if (file || name.value || desc.textContent){
+        if (file || name.value || desc.value){
             var formData = new FormData();
             file ? formData.append("imageUpload", file) : null;
-            desc.textContent ? formData.append("desc", desc.value) : null;
+            desc.value ? formData.append("desc", desc.value) : null;
             name.value ? formData.append("name", name.value) : null;
             
             console.log("hey")
