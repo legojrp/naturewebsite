@@ -125,7 +125,7 @@
         if (file || name.value || desc.textContent){
             var formData = new FormData();
             file ? formData.append("imageUpload", file) : null;
-            desc.textContent ? formData.append("desc", desc.textContent) : null;
+            desc.textContent ? formData.append("desc", desc.value) : null;
             name.value ? formData.append("name", name.value) : null;
             
             console.log("hey")
