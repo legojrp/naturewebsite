@@ -120,9 +120,6 @@
         var fileInput = document.querySelector("#imageupload");
         var name = document.querySelector(".left-column #title");
         var desc = document.querySelector(".left-column #desc");
-        console.log(name);
-        console.log(desc);
-        console.log(fileInput);
         var file = fileInput.files[0];
 
         if (file || name.value || desc.textContent){
@@ -131,6 +128,8 @@
             desc.textContent ? formData.append("desc", desc.textContent) : null;
             name.value ? formData.append("name", desc.value) : null;
             
+            console.log("hey")
+
             var idP = document.querySelector(".left-column #id");
             formData.append("id", idP.textContent); 
             var xhttp = new XMLHttpRequest();
