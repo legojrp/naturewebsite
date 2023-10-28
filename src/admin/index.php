@@ -13,14 +13,14 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/src/">
             <img src="/src/logo.png" width="30" height="30" class="d-inline-block align-top" alt="icon">
             Bloominary
         </a>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Admin</a>
+                    <a class="nav-link" href="/src/admin/">Admin</a>
                 </li>
             </ul>
         </div>
