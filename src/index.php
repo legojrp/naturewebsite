@@ -72,6 +72,13 @@
 
     <script>
         function toggleCardSelection(){
+            var cards = document.querySelectorAll('.custom-card');
+            cards.forEach(function(item) {
+                if (item !== card) {
+                    item.classList.remove('selected-card');
+                }
+            });
+            card.classList.toggle('selected-card');
 
             var modal =document.querySelector("#modal");
             if (modal.style.display == "none"){
