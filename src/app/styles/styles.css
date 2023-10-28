@@ -33,6 +33,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     background-color: #CCE3DE;
     color: #242423;
+    width:50px;
   }
   .center-card {
       position: absolute;
