@@ -71,41 +71,41 @@
     </div>
 
     <script>
-        function toggleCardSelection(card){
-            var cards = document.querySelectorAll('.custom-card');
-            cards.forEach(function(item) {
-                if (item !== card) {
-                    item.classList.remove('selected-card');
-                }
-            });
-            card.classList.toggle('selected-card');
+       function toggleCardSelection(card) {
+    var cards = document.querySelectorAll('.custom-card');
+    cards.forEach(function(item) {
+        if (item !== card) {
+            item.classList.remove('selected-card');
+        }
+    });
+    card.classList.toggle('selected-card');
 
-            var modal =document.querySelector("#modal");
-            if (modal.style.display == "none"){
-                modal.style.display = "block";
-                const xhttp = new XMLHttpRequest();
-                var id = document.querySelector(".selected-card p");
-                xhttp.onload = function() { //calls onload
-                    console.log(xhttp.responseText);
-                    var result =  JSON.parse(xhttp.responseText);
-                    if (result.status == true){
-                        var desc = document.querySelector(".modal-body p");
-                        var name = document.querySelector(".modal-header #title");
-                        name.textContent = result.name;
-                        desc.textContent = result.desc;
-                        
-                    }
-                    
-                }
-                xhttp.open("POST", "backend/getCard.php");
-                xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xhttp.send("id=" + id.textContent);
-            }
-            else {
-                modal.style.display = "none";
-            }
+    var modal = document.querySelector("#modal");
 
+    // Use `modal.style.display` to check if the modal is visible or not
+    if (modal.style.display === "none" || modal.style.display === "") {
+        modal.style.display = "block";
+        const xhttp = new XMLHttpRequest();
+        var id = card.querySelector("p").textContent; // Access the text content of the selected card
+
+        xhttp.onload = function() {
+            console.log(xhttp.responseText);
+            var result = JSON.parse(xhttp.responseText);
+            if (result.status === true) {
+                var desc = document.querySelector(".modal-body p");
+                var name = document.querySelector(".modal-header #title");
+                name.textContent = result.name;
+                desc.textContent = result.desc;
+            }
+        };
+
+        xhttp.open("POST", "backend/getCard.php");
+        xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhttp.send("id=" + id);
+    } else {
+        modal.style.display = "none";
     }
+
     </script>
 </body>
 </html>
