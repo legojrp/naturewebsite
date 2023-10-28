@@ -66,8 +66,26 @@ class logDB extends Dbconnect{
 class natureDB extends Dbconnect {
     private $table = "nature";
     
-    public function insert($name, $desc, $imageloc){
-        
+    public function insert($name, $desc, $imagename){
+        try {
+
+            $sql = "INSERT INTO nature (desc, name, imagename) VALUES (:desc, :name, :imagename)";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(":desc", $desc);
+            $stmt->bindParam(":name", $name);
+            $stmt->bindParam(":imagename", $imagename);
+            $stmt->execute();
+            $results = $stmt->fetch(PDO::FETCH_ASSOC);
+            if($results){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        catch(PDOException $e) {
+            logError("Insert Error: ". $e->getMessage());
+        }
     }
     public function displayMainPageNoFilter(){
         try {
@@ -94,6 +112,51 @@ class natureDB extends Dbconnect {
         catch (PDOException $e){
             logError("getInfoFromId error: ". $e->getMessage());
             return false;
+        }
+    }
+
+    public function exists($id){
+        try {
+            $stmt = $this->conn->prepare("SELECT * FROM nature WHERE id = :id ORDER BY id ASC LIMIT 1;");
+            $stmt->bindparam(":id", $id);
+            $stmt->execute();
+            $results = $stmt->fetch(PDO::FETCH_ASSOC);
+            if ($results){
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        catch (PDOException $e){
+            logError("exists error". $e->getMessage());
+            return false;
+        }
+    }
+    
+    public function update($desc, $name, $imagename, $id){
+        try {
+            $descS = $desc ? "description = :desc" : "";
+            $nameS = $desc ? "name = :name" : "";
+            $imagenameS  = $imagename ? "imagename = :imagename" : "";
+
+            $sql = "UPDATE nature SET" . $descS . $nameS . $imagenameS . "WHERE id = :id" 
+            ;
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindparam(":id", $id);
+            $stmt->bindParam(":desc", $desc);
+            $stmt->bindParam(":name", $name);
+            $stmt->bindParam(":imagename", $imagename);
+            $stmt->execute();
+            $results = $stmt->fetch(PDO::FETCH_ASSOC);
+            if ($results){
+                return true;
+            }
+            else {
+                return false;
+            }
+        } catch (PDOException $e){
+            logError("Update Error: ". $e->getMessage());
         }
     }
 }

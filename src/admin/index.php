@@ -33,30 +33,31 @@
         </div>
     </nav>
 
-  
-  <div class="container-fluid">
-      <div class="row flex-grow-1">
-          <!-- Right Column (Full screen) -->
+    
+    <div class="container-fluid">
+        <div class="row flex-grow-1">
+          <!-- Left Column (One third of the screen) -->
           <div class="bg-dark text-white p-4 left-column">
               <h4 class="mb-3">Image</h4>
+              <p style="display:none;" id="id"></p>
               <div id="imageselect" class="custom-file mb-4">
-                  <input type="file" class="custom-file-input" id="customFile" accept="image/*">
+                  <input type="file" id="imageupload" class="custom-file-input" id="customFile" accept="image/*">
                   <label class="custom-file-label" for="customFile">Choose file</label>
-              </div>
-
-              <h4 class="mb-3">Title</h4>
-              <input type="text" id= "title" class="form-control mb-4" placeholder="Enter Title">
-
-              <h4 class="mb-3">Description</h4>
-              <textarea id="desc" class="form-control mb-4" rows="5" placeholder="Enter Description"></textarea>
-
-              <div class="d-flex justify-content-center">
-                  <button class="btn btn-primary">Save</button>
-                  <button class="btn btn-danger ml-2">Delete</button>
-              </div>
-          </div>
-
-          <!-- Left Column (One third of the screen) -->
+                </div>
+                
+                <h4 class="mb-3">Title</h4>
+                <input type="text" id= "title" class="form-control mb-4" placeholder="Enter Title">
+                
+                <h4 class="mb-3">Description</h4>
+                <textarea id="desc" class="form-control mb-4" rows="5" placeholder="Enter Description"></textarea>
+                
+                <div class="d-flex justify-content-center">
+                    <button class="btn btn-primary" onclick="saveCard()">Save</button>
+                    <button class="btn btn-danger ml-2">Delete</button>
+                </div>
+            </div>
+            
+            <!-- Right Column (Full screen or 2/3 screen) -->
           <div class="right-column">
               <!-- Event Cards (Row) -->
               <div class="row">
@@ -97,10 +98,13 @@
                 console.log(xhttp.responseText);
                 var result =  JSON.parse(xhttp.responseText);
                 if (result.status == true){
-                    Desc = document.querySelector(".left-column #desc")
-                    Name = document.querySelector(".left-column #title")
-                    Name.value = result.name;
-                    Desc.value = result.desc;
+                    var desc = document.querySelector(".left-column #desc");
+                    var name = document.querySelector(".left-column #title");
+                    var idP =document.querySelector(".left-column #id");
+                    idP.textContent = id.textContent;
+                    name.value = result.name;
+                    desc.value = result.desc;
+                    
                 }
                 
             }
@@ -111,11 +115,29 @@
             
         }
     }
+    function notify(){}
 
     function saveCard(){
-        var xhttp = new XMLHttpRequest();
-        xhttp.onload = function() {
+        var fileInput = document.querySelector("#imageupload");
+        var name = document.querySelector(".left-column #title")
+        var desc = document.querySelector(".left-column #desc")
+        
+        var file = fileInput.files[0];
+
+        if (file || name.value || desc.textContent){
+            var formData = new FormData();
+            file ? formData.append("imageUpload", file) : null;
+            desc.textContent ? formData.append("desc", desc.textContent) : null;
+            name.value ? formData.append("name", desc.value) : null;
             
+            var idP = document.querySelector(".left-column #id");
+            formData.append("id", idP.textContent); 
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "../backend/saveCard.php", true);
+            xhttp.onload = function() {
+                var result = JSON.parse(xhttp.responseText);
+
+            }
         }
     }
 
