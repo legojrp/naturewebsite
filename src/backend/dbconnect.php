@@ -137,11 +137,12 @@ class natureDB extends Dbconnect {
 public function update($desc, $name, $imagename, $id){
     try {
         $descS = $desc ? "description = :desc," : "";
-        $nameS = $name ? "name = :name," : "";
+        $nameS = $name ? "name = :name" : "";
         $imagenameS = $imagename ? "imagename = :imagename" : "";
 
         if ($descS || $nameS || $imagenameS) {
             $sql = "UPDATE nature SET " . $descS . " " . $nameS . " " . $imagenameS . " WHERE id = :id";
+            echo $sql;
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(":id", $id, PDO::PARAM_INT);
 
