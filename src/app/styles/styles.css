@@ -71,7 +71,7 @@
   }
   .right-column {
       flex-basis: 2;
-      width: 74.59999%;
+      width: auto;
   }
   .container-fluid {
     display: flex;
