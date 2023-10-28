@@ -130,6 +130,7 @@
             
             console.log(formData);
 
+
             var idP = document.querySelector(".left-column #id");
             formData.append("id", idP.textContent); 
             var xhttp = new XMLHttpRequest();
@@ -138,6 +139,7 @@
                 var result = JSON.parse(xhttp.responseText);
                 console.log(result);
             }
+            xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhttp.send(formData);
         }
     }
