@@ -31,10 +31,10 @@
         <h4 class="black">Admin Log In</h4>
         <form action="/backend/loginhandler.php">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Name">
+            <input type="text" id="username" class="form-control" placeholder="Name">
           </div>
           <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password">
+            <input type="password" id="password" class="form-control" placeholder="Password">
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>

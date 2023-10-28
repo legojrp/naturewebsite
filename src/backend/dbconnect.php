@@ -98,6 +98,26 @@ class natureDB extends Dbconnect {
     }
 }
 
+class credsDb extends Dbconnect {
+    private $table = "creds";
+    public function signIn($username, $password) {
+        try {
+            $stmt = $this->conn->prepare("Select * From creds WHERE username = :username, password = :password ORDER BY id ASC LIMIT 1;");
+            $stmt->bindparam(":username", $username);
+            $stmt->bindParam(":password", hash("SHA256", $password));
+            $stmt->execute();
+            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if ($results != null || $results != false) {
+                return $results;
+            }
+            else {
+                return false;
+            }
+        }
+        catch (PDOException $e){
+            logError("SignIn Error". $e->getMessage());
+                
+
 
 
 
