@@ -1,10 +1,4 @@
 <!DOCTYPE html>
-    <?php
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL); 
-    require_once "../backend/central.php";
-    ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,9 +18,6 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="#">Admin</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Yes/extra for you <3</a>
                 </li>
             </ul>
         </div>
