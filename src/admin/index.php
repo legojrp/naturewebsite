@@ -124,9 +124,9 @@
 
         if (file || name.value || desc.value){
             var formData = new FormData();
-            file ? formData.append("imageUpload", file) : null;
-            desc.value ? formData.append("desc", desc.value) : null;
-            name.value ? formData.append("name", name.value) : null;
+            formData.append("imageUpload", file);
+            formData.append("desc", desc.value);
+            formData.append("name", name.value);
             
             console.log("hey")
 
