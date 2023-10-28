@@ -118,9 +118,11 @@
 
     function saveCard(){
         var fileInput = document.querySelector("#imageupload");
-        var name = document.querySelector(".left-column #title")
-        var desc = document.querySelector(".left-column #desc")
-        
+        var name = document.querySelector(".left-column #title");
+        var desc = document.querySelector(".left-column #desc");
+        console.log(name);
+        console.log(desc);
+        console.log(fileInput);
         var file = fileInput.files[0];
 
         if (file || name.value || desc.textContent){
