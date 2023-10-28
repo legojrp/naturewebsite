@@ -97,7 +97,7 @@
                     }
                     
                 }
-                xhttp.open("POST", "../backend/getCard.php");
+                xhttp.open("POST", "backend/getCard.php");
                 xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xhttp.send("id=" + id.textContent);
             }
