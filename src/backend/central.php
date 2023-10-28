@@ -34,5 +34,9 @@ function createCard(){
 
 }
 
+function navbar() {
+    
+}
+
 
 ?>

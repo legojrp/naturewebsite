@@ -37,7 +37,6 @@
         </div>
     </nav>
 
-
     <div class="container text-center mt-4">
         <h2>Title/im going mentally insane</h2>
         <p>Description/im not copying the turtle description but you understand</p>

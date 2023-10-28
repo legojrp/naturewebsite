@@ -117,7 +117,9 @@ class credsDb extends Dbconnect {
         catch (PDOException $e){
             logError("SignIn Error". $e->getMessage());
                 
-
+        }
+    }
+}
 
 
 
