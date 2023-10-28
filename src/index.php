@@ -72,27 +72,33 @@
 
     <script>
         function toggleCardSelection(){
+
             var modal =document.querySelector("#modal");
-            modal.modal("show");
-            const xhttp = new XMLHttpRequest();
-            var id = document.querySelector(".selected-card p");
-            xhttp.onload = function() { //calls onload
-                console.log(xhttp.responseText);
-                var result =  JSON.parse(xhttp.responseText);
-                if (result.status == true){
-                    var desc = document.querySelector(".modal-body p");
-                    var name = document.querySelector(".modal-header #title");
-                    name.textContent = result.name;
-                    desc.textContent = result.desc;
+            if (modal.style.display == "none"){
+                modal.style.display = "block";
+                const xhttp = new XMLHttpRequest();
+                var id = document.querySelector(".selected-card p");
+                xhttp.onload = function() { //calls onload
+                    console.log(xhttp.responseText);
+                    var result =  JSON.parse(xhttp.responseText);
+                    if (result.status == true){
+                        var desc = document.querySelector(".modal-body p");
+                        var name = document.querySelector(".modal-header #title");
+                        name.textContent = result.name;
+                        desc.textContent = result.desc;
+                        
+                    }
                     
                 }
-                
+                xhttp.open("POST", "../backend/getCard.php");
+                xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhttp.send("id=" + id.textContent);
             }
-            xhttp.open("POST", "../backend/getCard.php");
-            xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhttp.send("id=" + id.textContent);
+            else {
+                modal.style.display = "none";
+            }
 
-        }
+    }
     </script>
 </body>
 </html>
