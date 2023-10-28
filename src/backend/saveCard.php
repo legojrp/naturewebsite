@@ -33,7 +33,7 @@
             $results["status"] = "false";
         }
     }
-    else {
+    else if ($id || $name || $file || $desc) {
         $db = new natureDB();
         if ($db->insert($name, $desc, $imagename)){
             $results["status"] = "true";
@@ -41,6 +41,9 @@
         else {
             $results["status"] = "false";
         }
+    }
+    else {
+        $results["status"] = "false";
     }
     echo json_encode($results);
 
