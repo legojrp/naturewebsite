@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Project</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="app/styles/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="<?php echo $GLOBALS["PTS"]?>app/styles/styles.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
-            <img src="https://openclipart.org/image/2400px/svg_to_png/274087/1488160614.png" width="30" height="30" class="d-inline-block align-top" alt="icon">
-            Bloominary
+        <a class="navbar-brand" href="#">
+            <img src="https://upload.wikimedia.org/wikipedia/en/0/03/Walter_White_S5B.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            Walter White
         </a>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
@@ -22,51 +23,38 @@
         </div>
     </nav>
 
-  
-  <div class="container-fluid">
-      <div class="row flex-grow-1">
-          <!-- Right Column (Full screen) -->
+    
+    <div class="container-fluid">
+        <div class="row flex-grow-1">
+          <!-- Left Column (One third of the screen) -->
           <div class="bg-dark text-white p-4 left-column">
               <h4 class="mb-3">Image</h4>
-              <div class="custom-file mb-4">
-                  <input type="file" class="custom-file-input" id="customFile" accept="image/*">
+              <p style="display:none;" id="id"></p>
+              <div id="imageselect" class="custom-file mb-4">
+                  <input type="file" id="imageupload" class="custom-file-input" id="customFile" accept="image/*">
                   <label class="custom-file-label" for="customFile">Choose file</label>
-              </div>
-
-              <h4 class="mb-3">Title</h4>
-              <input type="text" class="form-control mb-4" placeholder="Enter Title">
-
-              <h4 class="mb-3">Description</h4>
-              <textarea class="form-control mb-4" rows="5" placeholder="Enter Description"></textarea>
-
-              <div class="d-flex justify-content-center">
-                  <button class="btn btn-primary">Save</button>
-                  <button class="btn btn-danger ml-2">Delete</button>
-              </div>
-          </div>
-
-          <!-- Left Column (One third of the screen) -->
+                </div>
+                
+                <h4 class="mb-3">Title</h4>
+                <input type="text" id= "title" class="form-control mb-4" placeholder="Enter Title">
+                
+                <h4 class="mb-3">Description</h4>
+                <textarea id="desc" class="form-control mb-4" rows="5" placeholder="Enter Description"></textarea>
+                
+                <div class="d-flex justify-content-center">
+                    <button class="btn btn-primary" onclick="saveCard()">Save</button>
+                    <button class="btn btn-danger ml-2">Delete</button>
+                </div>
+            </div>
+            
+            <!-- Right Column (Full screen or 2/3 screen) -->
           <div class="right-column">
               <!-- Event Cards (Row) -->
               <div class="row">
-                  <div class="col-md-6 mb-3">
-                      <div class="card custom-card" onclick="toggleCardSelection(this)">
-                          <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
-                          <div class="card-body">
-                              <h5 class="card-title">Event Title</h5>
-                              <p class="card-text">Event Description</p>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="col-md-6 mb-3">
-                      <div class="card custom-card" onclick="toggleCardSelection(this)">
-                          <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
-                          <div class="card-body">
-                              <h5 class="card-title">Event Title</h5>
-                              <p class="card-text">Event Description</p>
-                          </div>
-                      </div>
+              <?php 
+            // This will dynamically output every card! **DO NOT EDIT THIS CODE** - unless needed of course
+                    echo createCard();
+                ?>
                   </div>
               </div>
           </div>
@@ -75,23 +63,82 @@
 
 
   <script>
-      var isDisplayed = false;
       function toggleCardSelection(card) {
-        if (!isDisplayed) {
-          var cards = document.querySelectorAll('.custom-card');
-          cards.forEach(function(item) {
-              if (item !== card) {
-                  item.classList.remove('selected-card');
-              }
-          });
-          card.classList.toggle('selected-card');
-          var leftColumn = document.querySelector('.left-column');
-          var rightColumn = document.querySelector('.right-column');
-          leftColumn.style.display = document.querySelector('.selected-card') !== null ? 'block' : 'none';
-          rightColumn.style.width = "74.59999%";
+        
+        var cards = document.querySelectorAll('.custom-card');
+        cards.forEach(function(item) {
+            if (item !== card) {
+                item.classList.remove('selected-card');
+            }
+        });
+        card.classList.toggle('selected-card');
+        var leftColumn = document.querySelector('.left-column');
+        var rightColumn = document.querySelector('.right-column');
+        leftColumn.style.display = document.querySelector('.selected-card') !== null ? 'block' : 'none';
+        rightColumn.style.width = document.querySelector('.selected-card') !== null ? "74.5999%" : 'auto';
+
+
+
+
+        // Get the data from the card and output it into the form to edit if available
+        if (leftColumn.style.display == "block"){
+            const xhttp = new XMLHttpRequest();
+            var id = document.querySelector(".selected-card p");
+            xhttp.onload = function() { //calls onload
+                console.log(xhttp.responseText);
+                var result =  JSON.parse(xhttp.responseText);
+                if (result.status == true){
+                    var desc = document.querySelector(".left-column #desc");
+                    var name = document.querySelector(".left-column #title");
+                    var idP =document.querySelector(".left-column #id");
+                    idP.textContent = id.textContent;
+                    name.value = result.name;
+                    desc.value = result.desc;
+                    
+                }
+                
+            }
+            xhttp.open("POST", "../backend/getCard.php");
+            xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhttp.send("id=" + id.textContent);
+
+            
         }
-      }
+    }
+    function notify(){}
+
+    function saveCard(){
+        var fileInput = document.querySelector("#imageupload");
+        var name = document.querySelector(".left-column #title");
+        var desc = document.querySelector(".left-column #desc");
+        var file = fileInput.files[0];
+
+        if (file || name.value || desc.value){
+            var formData = new FormData();
+            formData.append("imageUpload", file);
+            formData.append("desc", desc.value);
+            formData.append("name", name.value);
+            
+            console.log(formData);
+
+
+            var idP = document.querySelector(".left-column #id");
+            formData.append("id", idP.textContent); 
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "../backend/saveCard.php");
+            xhttp.onload = function() {
+                console.log(xhttp.responseText);
+            }
+            //xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhttp.send(formData);
+        }
+    }
+
+
+      
   </script>
+
+
 
 
   

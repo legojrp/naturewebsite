@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Project</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="app/styles/styles.css">
 </head>
 <body>
     <?php
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL); 
-    require_once "./backend/central.php";
-    logInfo("This is a test!");
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL); 
+        require_once "./backend/central.php";
     ?>
 
 
@@ -28,17 +28,16 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Admin</a>
+                    <a class="nav-link" href="admin/">Admin</a>
                 </li>
             </ul>
         </div>
     </nav>
 
-
-    <div class="container text-center mt-4">
+    <!-- <div class="container text-center mt-4">
         <h2>Title/im going mentally insane</h2>
         <p>Description/im not copying the turtle description but you understand</p>
-    </div>
+    </div> -->
   
     <div class="container mt-4">
         <div class="row">
@@ -51,6 +50,10 @@
 
         </div>
     </div>
+
+    <script>
+        function toggleCardSelection(){}
+    </script>
 </body>
 </html>
 
