@@ -6,12 +6,12 @@
     <title>Bloominary</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="<?php echo $GLOBALS["PTS"]?>app/styles/styles.css">
+    <link rel="stylesheet" href="/src/app/styles/styles.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">
-            <img src= "<?php echo $GLOBALS["PTS"]?>logo.png" width="30" height="30" class="d-inline-block align-top" alt="icon">
+            <img src="/src/logo.png" width="30" height="30" class="d-inline-block align-top" alt="icon">
             Bloominary
         </a>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
