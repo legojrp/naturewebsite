@@ -21,17 +21,14 @@
 
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">
-            <img src="https://upload.wikimedia.org/wikipedia/en/0/03/Walter_White_S5B.png" width="30" height="30" class="d-inline-block align-top" alt="">
-            Walter White
+    <a class="navbar-brand" href="#">
+            <img src="https://openclipart.org/image/2400px/svg_to_png/274087/1488160614.png" width="30" height="30" class="d-inline-block align-top" alt="icon">
+            icon
         </a>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="#">Admin</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Yes/extra for you <3</a>
                 </li>
             </ul>
         </div>
