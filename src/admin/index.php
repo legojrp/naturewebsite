@@ -128,7 +128,7 @@
             formData.append("desc", desc.value);
             formData.append("name", name.value);
             
-            console.log("hey")
+            console.log(formData);
 
             var idP = document.querySelector(".left-column #id");
             formData.append("id", idP.textContent); 
