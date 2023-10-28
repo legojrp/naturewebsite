@@ -71,7 +71,7 @@
     </div>
 
     <script>
-        function toggleCardSelection(){
+        function toggleCardSelection(card){
             var cards = document.querySelectorAll('.custom-card');
             cards.forEach(function(item) {
                 if (item !== card) {
