@@ -136,8 +136,7 @@
             var xhttp = new XMLHttpRequest();
             xhttp.open("POST", "../backend/saveCard.php");
             xhttp.onload = function() {
-                var result = JSON.parse(xhttp.responseText);
-                console.log(result);
+                console.log(xhttp.responseText);
             }
             //xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhttp.send(formData);
