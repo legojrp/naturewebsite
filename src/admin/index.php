@@ -126,7 +126,7 @@
             var formData = new FormData();
             file ? formData.append("imageUpload", file) : null;
             desc.textContent ? formData.append("desc", desc.textContent) : null;
-            name.value ? formData.append("name", desc.value) : null;
+            name.value ? formData.append("name", name.value) : null;
             
             console.log("hey")
 
