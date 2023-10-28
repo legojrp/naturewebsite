@@ -136,8 +136,8 @@ class natureDB extends Dbconnect {
 
 public function update($desc, $name, $imagename, $id){
     try {
-        $descS = $desc ? "description = :desc" : "";
-        $nameS = $name ? "name = :name" : "";
+        $descS = $desc ? "description = :desc," : "";
+        $nameS = $name ? "name = :name," : "";
         $imagenameS = $imagename ? "imagename = :imagename" : "";
 
         if ($descS || $nameS || $imagenameS) {
