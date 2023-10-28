@@ -33,6 +33,25 @@
             </ul>
         </div>
     </nav>
+    <!-- Modal -->
+        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="desc"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+        </div>
+        </div>
 
     <!-- <div class="container text-center mt-4">
         <h2>Title/im going mentally insane</h2>
@@ -52,7 +71,28 @@
     </div>
 
     <script>
-        function toggleCardSelection(){}
+        function toggleCardSelection(){
+            var modal =document.querySelector("#modal");
+            modal.modal("hide");
+            const xhttp = new XMLHttpRequest();
+            var id = document.querySelector(".selected-card p");
+            xhttp.onload = function() { //calls onload
+                console.log(xhttp.responseText);
+                var result =  JSON.parse(xhttp.responseText);
+                if (result.status == true){
+                    var desc = document.querySelector(".modal-body p");
+                    var name = document.querySelector(".modal-header #title");
+                    name.textContent = result.name;
+                    desc.textContent = result.desc;
+                    
+                }
+                
+            }
+            xhttp.open("POST", "../backend/getCard.php");
+            xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhttp.send("id=" + id.textContent);
+
+        }
     </script>
 </body>
 </html>
