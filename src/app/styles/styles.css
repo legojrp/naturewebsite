@@ -72,6 +72,7 @@
   .right-column {
       flex-basis: 2;
       width: auto;
+      text-align: center;
   }
   .container-fluid {
     display: flex;
