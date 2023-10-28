@@ -143,7 +143,7 @@ public function update($desc, $name, $imagename, $id){
         if ($descS || $nameS || $imagenameS) {
             $sql = "UPDATE nature SET " . $descS . " " . $nameS . " " . $imagenameS . " WHERE id = :id";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(":id", intval($id));
+            $stmt->bindParam(":id", $id, PDO::PARAM_INT);
 
             if ($desc) {
                 $stmt->bindParam(":desc", $desc);
