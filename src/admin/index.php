@@ -4,7 +4,6 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL); 
     require_once "../backend/central.php";
-    logInfo("This is a test!");
     ?>
 <html lang="en">
 <head>
@@ -136,7 +135,7 @@
             xhttp.open("POST", "../backend/saveCard.php", true);
             xhttp.onload = function() {
                 var result = JSON.parse(xhttp.responseText);
-
+                console.log(result);
             }
         }
     }
