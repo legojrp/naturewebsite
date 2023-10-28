@@ -73,7 +73,7 @@
     <script>
         function toggleCardSelection(){
             var modal =document.querySelector("#modal");
-            modal.modal("hide");
+            modal.modal("show");
             const xhttp = new XMLHttpRequest();
             var id = document.querySelector(".selected-card p");
             xhttp.onload = function() { //calls onload
