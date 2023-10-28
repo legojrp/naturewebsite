@@ -84,7 +84,7 @@
         var leftColumn = document.querySelector('.left-column');
         var rightColumn = document.querySelector('.right-column');
         leftColumn.style.display = document.querySelector('.selected-card') !== null ? 'block' : 'none';
-        rightColumn.style.width = "74.59999%";
+        // rightColumn.style.width = "74.59999%";
 
 
 
