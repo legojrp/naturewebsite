@@ -36,9 +36,9 @@
   }
   .center-card {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      top: 200px;
+      left: 200px;
+      transform: translate(-200px, -200px);
   }
   .black{
     color: #000000;
@@ -71,7 +71,7 @@
   }
   .right-column {
       flex-basis: 2;
-      width: 100%;
+      width: 74.5999%;
   }
   .container-fluid {
     display: flex;
