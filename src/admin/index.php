@@ -139,7 +139,7 @@
                 var result = JSON.parse(xhttp.responseText);
                 console.log(result);
             }
-            xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            //xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhttp.send(formData);
         }
     }
