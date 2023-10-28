@@ -11,7 +11,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">
             <img src="https://openclipart.org/image/2400px/svg_to_png/274087/1488160614.png" width="30" height="30" class="d-inline-block align-top" alt="icon">
-            icon
+            Bloominary
         </a>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
