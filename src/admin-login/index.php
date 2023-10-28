@@ -8,20 +8,8 @@
     <link rel="stylesheet" href="app/styles/styles.css">
 </head>
 <body>
-    <?php
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL); 
-    require_once "./backend/central.php";
-    logInfo("This is a test!");
-    ?>
-
-
-
-
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="#">
             <img src="https://openclipart.org/image/2400px/svg_to_png/274087/1488160614.png" width="30" height="30" class="d-inline-block align-top" alt="icon">
             Bloominary
         </a>
@@ -35,26 +23,24 @@
     </nav>
 
 
-    <div class="container text-center mt-4">
-        <h2>Title/im going mentally insane</h2>
-        <p>Description/im not copying the turtle description but you understand</p>
+    <div class="container mt-4 text-center">
+      <div class="card p-4">
+        <h4 class="black">Admin Log In</h4>
+        <form>
+          <div class="form-group">  
+            <input type="text" class="form-control" placeholder="Name">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
     </div>
+
+
+
+
   
-    <div class="container mt-4">
-        <div class="row">
-            <?php 
-            // This will dynamically output every card! **DO NOT EDIT THIS CODE** - unless needed of course
-            echo createCard();
-            ?>
-
-
-
-        </div>
-    </div>
 </body>
 </html>
-
-
-<?php 
-// Tell me when you want server - client access, and I (John) can insert the php to transfer that info
-?> 
