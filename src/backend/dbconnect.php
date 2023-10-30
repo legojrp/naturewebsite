@@ -72,7 +72,8 @@ class natureDB extends Dbconnect {
             $sql = "INSERT INTO nature (desc, name, imagename) VALUES (:desc, :name, :imagename)";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(":desc", $desc);
-            $stmt->bindParam(":name", $name);
+            $stmt->bindParam(":name", $name);  
+              
             $stmt->bindParam(":imagename", $imagename);
             $stmt->execute();
             $results = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -158,9 +159,8 @@ public function update($desc, $name, $imagename, $id){
 
             if ($stmt->execute()) {
                 return true;
-            } else {
-                return false;
             }
+            return false;
         } else {
             // Handle the case where no fields are to be updated
             return false;
@@ -169,6 +169,19 @@ public function update($desc, $name, $imagename, $id){
         logError("Update Error: " . $e->getMessage());
         return false;
     }
+    }
+    public function delete($id){
+        try {
+            $stmt = $this->conn->prepare("Delete * FROM nature WHERE id = :id ORDER BY id ASC LIMIT 1");
+            $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+            if ($stmt->execute()) {
+                return true;
+            }
+            return false;
+        }
+        catch (PDOException $e){
+            logError("Delete Error:". $e->getMessage());
+        }
     }
 }
 class credsDb extends Dbconnect {
