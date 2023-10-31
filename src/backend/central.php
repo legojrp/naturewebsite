@@ -3,7 +3,7 @@
 require_once "logger.php";
 require_once "dbconnect.php";
 
-$PTS = "/src/";
+$PTS = "/src";
 $URL = "192.268.0.221";
 
 function createCard(){
