@@ -20,7 +20,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                <button class="btn btn-secondary" onclick="createCard()">Save</button>
+                <button class="btn btn-secondary" onclick="createCard()">Create Card</button>
                 </li>
                 <li class="nav-item">
                     
@@ -148,10 +148,12 @@
         var name = document.querySelector(".left-column #title");
         var desc = document.querySelector(".left-column #desc");
         var leftColumn = document.querySelector('.left-column');
+        var rightColumn = document.querySelector('.right-column');
         name.value = "";
         desc.value = "";
         fileInput.value = "";
-        leftColumn.display = "block";
+        leftColumn.style.display = "block";
+        rightColumn.style.width ="74.5999%";
     }
 
 
