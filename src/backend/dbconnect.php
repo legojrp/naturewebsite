@@ -5,9 +5,9 @@ require_once "logger.php";
 ini_set('memory_limit', '5028M');
 class Dbconnect {
     protected $conn = "";
-    private $username = "access";
+    private $username = "patchind_access";
     private $password = "\$ClockServer272";
-    private $database ="nature"; 
+    private $database ="patchind_nature"; 
     private $servername = "localhost";
     public $status = false; 
 

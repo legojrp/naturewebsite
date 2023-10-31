@@ -22,7 +22,7 @@
 
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/src/">
+    <a class="navbar-brand" href="/Bloominary/">
             <img src= "<?php echo $GLOBALS["PTS"]?>logo.png"width="30" height="30" class="d-inline-block align-top" alt="icon">
             Bloominary
         </a>
