@@ -13,14 +13,19 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/src/">
             <img src="/src/logo.png" width="30" height="30" class="d-inline-block align-top" alt="icon">
             Bloominary
         </a>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Admin</a>
+                <button class="btn btn-secondary" onclick="createCard()">Create Card</button>
+                </li>
+                <li class="nav-item">
+                    
+                    <a class="nav-link" href="/src/admin/">Admin</a>
+
                 </li>
             </ul>
         </div>
@@ -35,7 +40,7 @@
               <p style="display:none;" id="id"></p>
               <div id="imageselect" class="custom-file mb-4">
                   <input type="file" id="imageupload" class="custom-file-input" id="customFile" accept="image/*">
-                  <label class="custom-file-label" for="customFile">Choose file</label>
+                  <label class="custom-file-label" for="customFile">Choose file (Unfunctional due to server permission issue)</label>
                 </div>
                 
                 <h4 class="mb-3">Title</h4>
@@ -46,7 +51,7 @@
                 
                 <div class="d-flex justify-content-center">
                     <button class="btn btn-primary" onclick="saveCard()">Save</button>
-                    <button class="btn btn-danger ml-2">Delete</button>
+                    <button class="btn btn-danger ml-2" onclick="deleteCard()">Delete</button>
                 </div>
             </div>
             
@@ -131,10 +136,37 @@
             xhttp.open("POST", "../backend/saveCard.php");
             xhttp.onload = function() {
                 console.log(xhttp.responseText);
+                location.reload(); 
             }
             //xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhttp.send(formData);
         }
+    }
+
+    function createCard(){
+        var fileInput = document.querySelector("#imageupload");
+        var name = document.querySelector(".left-column #title");
+        var desc = document.querySelector(".left-column #desc");
+        var leftColumn = document.querySelector('.left-column');
+        var rightColumn = document.querySelector('.right-column');
+        name.value = "";
+        desc.value = "";
+        fileInput.value = "";
+        leftColumn.style.display = "block";
+        rightColumn.style.width ="74.5999%";
+    }
+
+    function deleteCard(){
+        var idP = document.querySelector(".left-column #id");
+        var formData = new FormData();
+        formData.append("id", idP.textContent);
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "../backend/deleteCard.php");
+            xhttp.onload = function() {
+                console.log(xhttp.responseText);
+                location.reload(); 
+            }
+        xhttp.send(formData);
     }
 
 

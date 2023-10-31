@@ -68,12 +68,15 @@ class natureDB extends Dbconnect {
     
     public function insert($name, $desc, $imagename){
         try {
-
-            $sql = "INSERT INTO nature (desc, name, imagename) VALUES (:desc, :name, :imagename)";
+            $nodesc = "Empty Description";
+            $noname = "Empty Title";
+            $noimage = "example.png";
+            $sql = "INSERT INTO nature (description, name, imagename) VALUES (:desc, :name, :imagename)";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(":desc", $desc);
-            $stmt->bindParam(":name", $name);
-            $stmt->bindParam(":imagename", $imagename);
+            $desc ? $stmt->bindParam(":desc", $desc) : $stmt->bindParam(":desc", $nodesc);
+            $name ? $stmt->bindParam(":name", $name) : $stmt->bindParam(":name", $noname);
+
+            $imagename ? $stmt->bindParam(":imagename", $imagename) : $stmt->bindParam(":imagename", $noimage);
             $stmt->execute();
             $results = $stmt->fetch(PDO::FETCH_ASSOC);
             if($results){
@@ -158,9 +161,8 @@ public function update($desc, $name, $imagename, $id){
 
             if ($stmt->execute()) {
                 return true;
-            } else {
-                return false;
             }
+            return false;
         } else {
             // Handle the case where no fields are to be updated
             return false;
@@ -169,6 +171,19 @@ public function update($desc, $name, $imagename, $id){
         logError("Update Error: " . $e->getMessage());
         return false;
     }
+    }
+    public function delete($id){
+        try {
+            $stmt = $this->conn->prepare("DELETE FROM nature WHERE id = :id ORDER BY id ASC LIMIT 1");
+            $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+            if ($stmt->execute()) {
+                return true;
+            }
+            return false;
+        }
+        catch (PDOException $e){
+            logError("Delete Error:". $e->getMessage());
+        }
     }
 }
 class credsDb extends Dbconnect {
@@ -192,6 +207,8 @@ class credsDb extends Dbconnect {
                 
         }
     }
+
+
 }
 
 

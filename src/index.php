@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Bloominary</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="app/styles/styles.css">
@@ -21,7 +22,7 @@
 
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/src/">
             <img src= "<?php echo $GLOBALS["PTS"]?>logo.png"width="30" height="30" class="d-inline-block align-top" alt="icon">
             Bloominary
         </a>
@@ -71,28 +72,42 @@
     </div>
 
     <script>
-        function toggleCardSelection(){
-            var modal =document.querySelector("#modal");
-            modal.modal("hide");
+       function toggleCardSelection(card) {
+         var cards = document.querySelectorAll('.custom-card');
+        cards.forEach(function(item) {
+            if (item !== card) {
+                item.classList.remove('selected-card');
+            }
+        });
+        card.classList.toggle('selected-card');
+
+        var modal = document.querySelector("#modal");
+
+        // Use `modal.style.display` to check if the modal is visible or not
+        if (!$(modal).is(":visible")) {
+            $(modal).modal("show");
             const xhttp = new XMLHttpRequest();
-            var id = document.querySelector(".selected-card p");
-            xhttp.onload = function() { //calls onload
+            var id = card.querySelector("p").textContent; // Access the text content of the selected card
+
+            xhttp.onload = function() {
                 console.log(xhttp.responseText);
-                var result =  JSON.parse(xhttp.responseText);
-                if (result.status == true){
+                var result = JSON.parse(xhttp.responseText);
+                if (result.status === true) {
                     var desc = document.querySelector(".modal-body p");
                     var name = document.querySelector(".modal-header #title");
                     name.textContent = result.name;
                     desc.textContent = result.desc;
-                    
                 }
-                
-            }
-            xhttp.open("POST", "../backend/getCard.php");
-            xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhttp.send("id=" + id.textContent);
+            };
 
-        }
+            xhttp.open("POST", "backend/getCard.php");
+            xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhttp.send("id=" + id);
+        } else {
+            $(modal).modal("show");
+         }
+    }
+
     </script>
 </body>
 </html>

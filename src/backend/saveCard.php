@@ -6,15 +6,15 @@
     error_reporting(E_ALL); 
 
     
-    if (isset($_FILES["fileToUpload"])){
-        $file = $_FILES["fileToUpload"];
+    if (isset($_FILES["imageUpload"]) && false){ // file upload not functional
+        $file = $_FILES["imageUpload"];
         $targetDir = "../pics/";
-        $targetFile = $targetDir . basename($_FILES["name"]);
+        $targetFile = $targetDir . basename($_FILES["imageUpload"]["name"]);
 
         // Generate a unique file name based on timestamp and random string
         $timestamp = time(); 
         $randomString = bin2hex(random_bytes(8)); 
-        $fileExtension = pathinfo($originalFileName, PATHINFO_EXTENSION);
+        $fileExtension = pathinfo($_FILES["imageUpload"]["name"], PATHINFO_EXTENSION);
         $uniqueFileName = $timestamp . '_' . $randomString . '.' . $fileExtension;
 
         if (move_uploaded_file($file["tmp_name"], $targetFile)){
@@ -22,7 +22,7 @@
             
         }
         else {
-            $imagename = "";
+            $imagename = "example.png";
         }
     }
 
