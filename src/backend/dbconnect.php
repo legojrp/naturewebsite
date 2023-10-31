@@ -174,7 +174,7 @@ public function update($desc, $name, $imagename, $id){
     }
     public function delete($id){
         try {
-            $stmt = $this->conn->prepare("Delete * FROM nature WHERE id = :id ORDER BY id ASC LIMIT 1");
+            $stmt = $this->conn->prepare("DELETE FROM nature WHERE id = :id ORDER BY id ASC LIMIT 1");
             $stmt->bindParam(":id", $id, PDO::PARAM_INT);
             if ($stmt->execute()) {
                 return true;
@@ -207,6 +207,8 @@ class credsDb extends Dbconnect {
                 
         }
     }
+
+
 }
 
 
