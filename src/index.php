@@ -81,7 +81,6 @@
         card.classList.toggle('selected-card');
 
         var modal = document.querySelector("#modal");
-        v
 
         // Use `modal.style.display` to check if the modal is visible or not
         if (!$(modal).is(":visible")) {
