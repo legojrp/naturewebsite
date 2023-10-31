@@ -73,10 +73,10 @@ class natureDB extends Dbconnect {
             $noimage = "example.jpg";
             $sql = "INSERT INTO nature (desc, name, imagename) VALUES (:desc, :name, :imagename)";
             $stmt = $this->conn->prepare($sql);
-            $desc ? $stmt->bindParam(":desc", $desc) : $stmt->bindParam(":desc", $nodesc , PDO::PARAM_STR);
-            $name ? $stmt->bindParam(":name", $name) : $stmt->bindParam(":name", $noname, PDO::PARAM_STR);
+            $desc ? $stmt->bindParam(":desc", $desc) : $stmt->bindParam(":desc", $nodesc);
+            $name ? $stmt->bindParam(":name", $name) : $stmt->bindParam(":name", $noname);
 
-            $imagename ? $stmt->bindParam(":imagename", $imagename) : $stmt->bindParam(":imagename", $noimage, PDO::PARAM_STR);
+            $imagename ? $stmt->bindParam(":imagename", $imagename) : $stmt->bindParam(":imagename", $noimage);
             $stmt->execute();
             $results = $stmt->fetch(PDO::FETCH_ASSOC);
             if($results){
