@@ -20,7 +20,9 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
+                    <button class="btn btn-secondary" onclick="createCard()">Save</button>
                     <a class="nav-link" href="/src/admin/">Admin</a>
+
                 </li>
             </ul>
         </div>
@@ -131,10 +133,22 @@
             xhttp.open("POST", "../backend/saveCard.php");
             xhttp.onload = function() {
                 console.log(xhttp.responseText);
+                location.reload(); 
             }
             //xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhttp.send(formData);
         }
+    }
+
+    function createCard(){
+        var fileInput = document.querySelector("#imageupload");
+        var name = document.querySelector(".left-column #title");
+        var desc = document.querySelector(".left-column #desc");
+        var leftColumn = document.querySelector('.left-column');
+        name.value = "";
+        desc.value = "";
+        fileInput.value = "";
+        leftColumn.display = "block";
     }
 
 
