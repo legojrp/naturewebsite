@@ -149,9 +149,11 @@
         var desc = document.querySelector(".left-column #desc");
         var leftColumn = document.querySelector('.left-column');
         var rightColumn = document.querySelector('.right-column');
+        var idP = document.querySelector(".left-column #id");
         name.value = "";
         desc.value = "";
         fileInput.value = "";
+        idP.textContent = "";
         leftColumn.style.display = "block";
         rightColumn.style.width ="74.5999%";
     }
