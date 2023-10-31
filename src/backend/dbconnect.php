@@ -71,7 +71,7 @@ class natureDB extends Dbconnect {
             $nodesc = "Empty Description";
             $noname = "Empty Title";
             $noimage = "example.jpg";
-            $sql = "INSERT INTO nature (desc, name, imagename) VALUES (:desc, :name, :imagename)";
+            $sql = "INSERT INTO nature (description, name, imagename) VALUES (:desc, :name, :imagename)";
             $stmt = $this->conn->prepare($sql);
             $desc ? $stmt->bindParam(":desc", $desc) : $stmt->bindParam(":desc", $nodesc);
             $name ? $stmt->bindParam(":name", $name) : $stmt->bindParam(":name", $noname);
