@@ -160,6 +160,7 @@
         var idP = document.querySelector(".left-column #id");
         var formData = new FormData();
         formData.append("id", idP.textContent);
+        var xhttp = new XMLHttpRequest();
         xhttp.open("POST", "../backend/deleteCard.php");
             xhttp.onload = function() {
                 console.log(xhttp.responseText);
