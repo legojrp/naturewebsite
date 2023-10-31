@@ -51,7 +51,7 @@
                 
                 <div class="d-flex justify-content-center">
                     <button class="btn btn-primary" onclick="saveCard()">Save</button>
-                    <button class="btn btn-danger ml-2">Delete</button>
+                    <button class="btn btn-danger ml-2" onclick="deleteCard()">Delete</button>
                 </div>
             </div>
             
@@ -154,6 +154,18 @@
         fileInput.value = "";
         leftColumn.style.display = "block";
         rightColumn.style.width ="74.5999%";
+    }
+
+    function deleteCard(){
+        var idP = document.querySelector(".left-column #id");
+        var formData = new FormData();
+        formData.append("id", idP.textContent);
+        xhttp.open("POST", "../backend/deleteCard.php");
+            xhttp.onload = function() {
+                console.log(xhttp.responseText);
+                location.reload(); 
+            }
+        xhttp.send(formData);
     }
 
 
