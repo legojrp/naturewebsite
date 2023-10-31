@@ -6,7 +6,7 @@
     error_reporting(E_ALL); 
 
     
-    if (isset($_FILES["imageUpload"])){ // file upload not functional
+    if (isset($_FILES["imageUpload"]) && false){ // file upload not functional
         $file = $_FILES["imageUpload"];
         $targetDir = "../pics/";
         $targetFile = $targetDir . basename($_FILES["imageUpload"]["name"]);
@@ -22,7 +22,7 @@
             
         }
         else {
-            $imagename = "";
+            $imagename = "example.png";
         }
     }
 
