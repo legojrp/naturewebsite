@@ -35,7 +35,7 @@
               <p style="display:none;" id="id"></p>
               <div id="imageselect" class="custom-file mb-4">
                   <input type="file" id="imageupload" class="custom-file-input" id="customFile" accept="image/*">
-                  <label class="custom-file-label" for="customFile">Choose file</label>
+                  <label class="custom-file-label" for="customFile">Choose file (Unfunctional due to server permission issue)</label>
                 </div>
                 
                 <h4 class="mb-3">Title</h4>

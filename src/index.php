@@ -21,7 +21,7 @@
 
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/src/">
             <img src= "<?php echo $GLOBALS["PTS"]?>logo.png"width="30" height="30" class="d-inline-block align-top" alt="icon">
             Bloominary
         </a>
@@ -81,10 +81,11 @@
         card.classList.toggle('selected-card');
 
         var modal = document.querySelector("#modal");
+        v
 
         // Use `modal.style.display` to check if the modal is visible or not
-        if (modal.style.display === "none" || modal.style.display === "") {
-            modal.style.display = "block";
+        if (!$(modal).is(":visible")) {
+            $(modal).modal("show");
             const xhttp = new XMLHttpRequest();
             var id = card.querySelector("p").textContent; // Access the text content of the selected card
 
@@ -103,7 +104,7 @@
             xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhttp.send("id=" + id);
         } else {
-            modal.style.display = "none";
+            $(modal).modal("show");
          }
     }
 
