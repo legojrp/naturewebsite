@@ -20,7 +20,10 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <button class="btn btn-secondary" onclick="createCard()">Save</button>
+                <button class="btn btn-secondary" onclick="createCard()">Save</button>
+                </li>
+                <li class="nav-item">
+                    
                     <a class="nav-link" href="/src/admin/">Admin</a>
 
                 </li>
